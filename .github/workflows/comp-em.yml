@@ -32,7 +32,7 @@ jobs:
       run: |
         cd ~/
         
-        git clone https://github.com/FWGS/emscripten -b xash3d
+        git clone https://github.com/Buggem/emscripten-xash3d -b xash3d
         wget https://github.com/FWGS/emscripten-fastcomp/releases/download/xash3d-0.1/fastcomp.txz -O - |tar xJ
         
         cd $OLDPWD
