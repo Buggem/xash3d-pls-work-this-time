@@ -30,6 +30,7 @@ jobs:
     - name: Preparing build
       
       run: |
+        which node
         cd ~/
         
         git clone "https://github.com/Buggem/emscripten-xash3d" -b xash3d
