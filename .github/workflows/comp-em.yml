@@ -44,6 +44,7 @@ jobs:
         cd xash3d/engine
         ls
         ln -s "$(builtin cd "../"; pwd)" ~/xash3d-em
+        cat ~/.emscripten
         make -f Makefile.emscripten -j5
         git clone https://github.com/FWGS/microndk
         cd mainui
