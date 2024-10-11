@@ -45,6 +45,8 @@ jobs:
       run: |
         cd xash3d/engine
         ls
+        sed -i 's/\~\/emscripten/$(dirname "$(which emcc)")/g' Makefile.emscripten
+        sed -i 's/\~\/xash3d-em/$(builtin cd "../"; pwd)/g' Makefile.emscripten
         make -f Makefile.emscripten -j5
         git clone https://github.com/FWGS/microndk
         cd mainui
