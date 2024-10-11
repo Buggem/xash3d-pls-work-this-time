@@ -56,6 +56,7 @@ jobs:
         ~/emscripten/emcc --version # init emcc and stuffs :D
         rm ~/.emscripten
         wget "https://raw.githubusercontent.com/Buggem/xash3d-pls-work-this-time/refs/heads/master/.emscripten" -O ~/.emscripten
+        EXPORT NODE="$(which node)"
         make -f Makefile.emscripten -j5
         git clone https://github.com/FWGS/microndk
         cd mainui
