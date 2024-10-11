@@ -22,16 +22,14 @@ jobs:
       SDL_VERSION: 2.30.3
       GH_CPU_ARCH: ${{ matrix.targetarch }}
     steps:
-    - uses: mymindstorm/setup-emsdk@v14
-      with:
-        # Make sure to set a version number!
-        version: 1.38.45
-      
+    
     - name: Preparing build
       
       run: |
+        cd ~/
         git clone https://github.com/FWGS/emscripten -b xash3d
         wget https://github.com/FWGS/emscripten-fastcomp/releases/download/xash3d-0.1/fastcomp.txz -O - |tar xJ
+        cd $OLDPWD
         git clone https://github.com/FWGS/xash3d
         cd xash3d
         git submodule init && git submodule update
@@ -45,7 +43,6 @@ jobs:
       run: |
         cd xash3d/engine
         ls
-        ln -s "$(dirname "$(which emcc)")" ~/emscripten
         ln -s "$(builtin cd "../"; pwd)" ~/xash3d-em
         make -f Makefile.emscripten -j5
         git clone https://github.com/FWGS/microndk
