@@ -1,0 +1,55 @@
+name: Build & Deploy Engine
+on: [push, pull_request]
+jobs:
+#  cleanup:
+#    runs-on: self-hosted
+#    steps:
+#    - name: Cleanup
+#      run: rm -rf .* || true
+  build:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Linux build specifically want oldest Ubuntu as possible
+          # to be crossdistribution compatible, otherwise use ubuntu-latest
+          - os: ubuntu-20.04
+            targetos: emscripten
+            targetarch: i386
+    env:
+      SDL_VERSION: 2.30.3
+      GH_CPU_ARCH: ${{ matrix.targetarch }}
+    steps:
+    - uses: mymindstorm/setup-emsdk@v14
+      with:
+        # Make sure to set a version number!
+        version: 1.38.45
+      
+    - name: Preparing build
+      
+      run: |
+        git clone https://github.com/FWGS/emscripten -b xash3d
+        wget https://github.com/FWGS/emscripten-fastcomp/releases/download/xash3d-0.1/fastcomp.txz -O - |tar xJ
+        git clone https://github.com/FWGS/xash3d
+        cd xash3d
+        git submodule init && git submodule update
+        ./contrib/mittorn/setup.sh # Setup makefile
+        cd engine
+        git clone https://github.com/FWGS/gl-wes-v2 -b webgl-vbo
+        git clone https://github.com/FWGS/nanogl
+
+    - name: Build Xash3D
+
+      run: |
+        make -f Makefile.emscripten -j5
+        git clone https://github.com/FWGS/microndk
+        cd mainui
+        make -f ../microndk/Microndk.mk CC=$(which emcc) CXX=$(which em++)
+        ls ../
+    - name: Upload engine (artifacts)
+      uses: actions/upload-artifact@v4
+      with:
+        name: artifact-${{ matrix.targetos }}-${{ matrix.targetarch }}
+        path: build/*
