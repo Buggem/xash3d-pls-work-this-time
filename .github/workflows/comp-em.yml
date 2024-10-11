@@ -43,6 +43,7 @@ jobs:
     - name: Build Xash3D
 
       run: |
+        cd xash3d/engine
         ls
         make -f Makefile.emscripten -j5
         git clone https://github.com/FWGS/microndk
