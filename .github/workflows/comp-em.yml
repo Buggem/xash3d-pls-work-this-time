@@ -44,7 +44,7 @@ jobs:
         cd xash3d/engine
         ls
         ln -s "$(builtin cd "../"; pwd)" ~/xash3d-em
-        emcc --version # init emcc and stuffs :D
+        ~/emscripten/emcc --version # init emcc and stuffs :D
         cat ~/.emscripten
         make -f Makefile.emscripten -j5
         git clone https://github.com/FWGS/microndk
