@@ -52,7 +52,7 @@ jobs:
       run: |
         cd xash3d/engine
         ls
-        ln -s "$(builtin cd "../"; pwd)" ~/xash3d-em
+        ln -s "$(builtin cd "../"; pwd)" ~/xash-em
         ~/emscripten/emcc --version # init emcc and stuffs :D
         rm ~/.emscripten
         wget "https://raw.githubusercontent.com/Buggem/xash3d-pls-work-this-time/refs/heads/master/.emscripten" -O ~/.emscripten
