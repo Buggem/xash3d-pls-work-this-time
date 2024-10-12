@@ -21,6 +21,8 @@ NODE_JS = os.path.expanduser(os.getenv('NODE') or '/usr/local/bin/node') # execu
 SPIDERMONKEY_ENGINE = [os.path.expanduser(os.getenv('SPIDERMONKEY') or 'js')] # executable
 V8_ENGINE = os.path.expanduser(os.getenv('V8') or 'd8') # executable
 
+JS_ENGINES = [NODE_JS]
+
 JAVA = 'java' # executable
 
 TEMP_DIR = '/tmp'
