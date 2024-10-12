@@ -23,3 +23,9 @@ with original Xash3D and Gold Source.
 The library is licensed under GPLv3 license, see [COPYING](https://github.com/FWGS/xash3d/blob/master/COPYING) for details.
 CMakeLists.txt files are licensed under MIT license, you will find it's text
 in every CMakeLists.txt header.
+
+
+
+
+
+e
