@@ -18,7 +18,6 @@ CC = ~/emscripten/emcc --llvm-lto 3 -s INLINING_LIMIT=0 -s USE_SDL=2
 CXX = ~/emscripten/em++ --llvm-lto 3 -s INLINING_LIMIT=0 -s USE_SDL=2
 # async mode - produces very large scripts. Unuseful with shared libraries
 ASYNC ?= 0
-$(CC)
 
 OUTPUT_DIR ?= xash-em
 
