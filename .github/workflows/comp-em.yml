@@ -46,9 +46,6 @@ jobs:
         ln -s "$(dirname "$(which emcc)")" ~/emscripten
         ln -s "$(builtin cd "../"; pwd)" ~/xash-em
         ~/emscripten/emcc --version # init emcc and stuffs :D
-        rm ~/.emscripten
-        wget "https://raw.githubusercontent.com/Buggem/xash3d-pls-work-this-time/refs/heads/master/.emscripten" -O ~/.emscripten
-        export NODE="$(which node)"
         make -f Makefile.emscripten -j5
         git clone https://github.com/FWGS/microndk
         cd mainui
