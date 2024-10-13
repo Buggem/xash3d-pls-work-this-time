@@ -62,7 +62,7 @@ jobs:
         git clone https://github.com/FWGS/microndk
         
         cd "$(builtin cd "../mainui"; pwd)"
-        make -f "$(builtin cd "../engine/microndk/Microndk.mk"; pwd)" CC=$(which emcc) CXX=$(which em++)
+        make -f "$(builtin cd "../engine/microndk"; pwd)/Microndk.mk" CC=$(which emcc) CXX=$(which em++)
         ls ../
     - name: Upload engine (artifacts)
       uses: actions/upload-artifact@v4
