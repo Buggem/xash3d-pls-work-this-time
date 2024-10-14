@@ -37,6 +37,7 @@ jobs:
         git clone https://github.com/FWGS/xash3d
         cd xash3d
         git submodule init && git submodule update
+        git clone https://github.com/FWGS/hlsdk-portable /hlsdk
         ./contrib/mittorn/setup.sh # Setup makefile
         cd engine
         git clone https://github.com/FWGS/gl-wes-v2 -b webgl-vbo
@@ -56,7 +57,7 @@ jobs:
         make -f Makefile.emscripten -j5
         git clone https://github.com/Buggem/microndk
         
-        # cd "$(builtin cd "../mainui"; pwd)"
+        # cd "$(builtin cd "../hlsdk/cl_dlls"; pwd)"
         # make -f "$(builtin cd "../engine/microndk"; pwd)/Microndk.mk" CC="$(which emcc)" CXX="$(which em++)"
         # ls ../
     - name: Upload engine (artifacts)
