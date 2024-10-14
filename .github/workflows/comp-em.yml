@@ -57,7 +57,7 @@ jobs:
         make -f Makefile.emscripten -j5
         git clone https://github.com/Buggem/microndk
         
-        cd "$(builtin cd "../hlsdk/cl_dlls"; pwd)"
+        cd "$(builtin cd "../hlsdk/cl_dll"; pwd)"
         make -f "$(builtin cd "../engine/microndk"; pwd)/Microndk.mk" CC="$(which emcc)" CXX="$(which em++)"
         ls ../
     - name: Upload engine (artifacts)
