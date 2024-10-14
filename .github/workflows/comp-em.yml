@@ -57,9 +57,9 @@ jobs:
         make -f Makefile.emscripten -j5
         git clone https://github.com/Buggem/microndk
         
-        # cd "$(builtin cd "../hlsdk/cl_dlls"; pwd)"
-        # make -f "$(builtin cd "../engine/microndk"; pwd)/Microndk.mk" CC="$(which emcc)" CXX="$(which em++)"
-        # ls ../
+        cd "$(builtin cd "../hlsdk/cl_dlls"; pwd)"
+        make -f "$(builtin cd "../engine/microndk"; pwd)/Microndk.mk" CC="$(which emcc)" CXX="$(which em++)"
+        ls ../
     - name: Upload engine (artifacts)
       uses: actions/upload-artifact@v4
       with:
