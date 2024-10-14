@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Linux build specifically want oldest Ubuntu as possible
+          # Linux build specifically want OLDEST Ubuntu as possible
           # to be crossdistribution compatible, otherwise use ubuntu-latest.
           - os: ubuntu-20.04
             targetos: emscripten
