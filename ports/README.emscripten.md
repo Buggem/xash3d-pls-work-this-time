@@ -14,7 +14,7 @@ Patches adding workaround for unaligned access:
 
 ### Texture binding
 
-Xash3D uses old-style texture creation which does not work with Emscripten
+Xash3D uses old-style texture creation which does not work with Emscripten.
 
 Patch to make texture loading work:
 
@@ -39,7 +39,7 @@ set proxy server url in xash.html or shell.html
 
 ### ...
 
-All patches compiled in this branches:
+All patches compiled in these branches:
 
 * https://github.com/FWGS/emscripten/tree/xash3d
 * https://github.com/FWGS/emscripten-fastcomp/tree/master
