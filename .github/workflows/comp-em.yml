@@ -63,6 +63,12 @@ jobs:
         cd dlls
         make -f "$(builtin cd "../../engine/microndk"; pwd)/Microndk.mk" CC="$(which emcc)" CXX="$(which em++)"
         ls ../
+    - name: Upload logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: logs-${{ matrix.targetos }}-${{ matrix.targetarch }}
+        path: /tmp/emscripten_temp
     - name: Upload engine (artifacts)
       uses: actions/upload-artifact@v4
       with:
