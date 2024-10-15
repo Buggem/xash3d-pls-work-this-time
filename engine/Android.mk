@@ -35,11 +35,10 @@ LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/../pm_shared		    \
 	$(LOCAL_PATH)/../			    \
 	$(LOCAL_PATH)/../utils/vgui/include	    \
-	$(LOCAL_PATH)/../public
 	$(HLSDK_PATH)/cl_dll/
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
-echo $(LOCAL_C_INCLUDES)
+
 LOCAL_SRC_FILES := \
 	   platform/android/dlsym-weak.cpp \
 	   client/cl_cmds.c \
