@@ -64,6 +64,7 @@ jobs:
         make -f "$(builtin cd "../../engine/microndk"; pwd)/Microndk.mk" CC="$(which emcc)" CXX="$(which em++)"
         ls ../
     - name: Upload engine (artifacts)
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: build-${{ matrix.targetos }}-${{ matrix.targetarch }}
