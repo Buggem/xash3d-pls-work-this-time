@@ -9,7 +9,7 @@ jobs:
       matrix:
         include:
           # For a Linux build we specifically want the OLDEST Ubuntu as possible
-          # to be crossdistribution compatible, otherwise use ubuntu-latest.
+          # to be crossdistribution compatible, otherwise we use ubuntu-latest.
           - os: ubuntu-20.04
             targetos: emscripten
             targetarch: i386
