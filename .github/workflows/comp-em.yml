@@ -28,7 +28,7 @@ jobs:
         which node
         cd ~/
         
-        git clone "https://github.com/Buggem/emscripten-xash3d" -b xash3d
+        git clone "https://github.com/Buggem/emscripten-xash3d" -b xash3d --recursive
         mv emscripten-xash3d emscripten
         wget "https://github.com/FWGS/emscripten-fastcomp/releases/download/xash3d-0.1/fastcomp.txz" -O - |tar xJ
         
